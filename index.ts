@@ -99,10 +99,10 @@ function cskscoreboard(score) {
   }
   if (score !== 0) {
     cell = `cell${cskstart + i}`;
-    /* if (`${cell}` == "cell95" && i == 4) {
+    if (`${cell}` == "cell95" && i == 4) {
       score = 0;
      return; 
-    } */
+    }
     let hit = document.getElementById(cell) as HTMLInputElement;
     hit.innerText = score;
 
