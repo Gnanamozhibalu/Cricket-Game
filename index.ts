@@ -87,21 +87,21 @@ let playerTotal = 0;
 let eachplayer = [0];
 let eachball = [0];
 let res = 0;
-let cskscore=[0];
-let miscore=[0];
+let cskscore = [0];
+let miscore = [0];
 //csk scoreboard
 function cskscoreboard(score) {
- // console.log("current score csk",score);
+  // console.log("current score csk",score);
   cskTotal = score + cskTotal;
   //console.log("cskTotal", cskTotal);
-  if (`${cell}` == "cell95" && j == 4) {
+  if (`${cell}` == "cell95" && i == 4) {
     score = 0;
   }
   if (score !== 0) {
     cell = `cell${cskstart + i}`;
     if (`${cell}` == "cell95" && i == 4) {
       score = 0;
-     return; 
+      return;
     }
     let hit = document.getElementById(cell) as HTMLInputElement;
     hit.innerText = score;
@@ -153,7 +153,7 @@ function cskscoreboard(score) {
 }
 
 function miscoreboard(score) {
- // console.log("Current score MI",score);
+  // console.log("Current score MI",score);
   miTotal = score + miTotal;
   //console.log("mitotal", miTotal);
   if (`${cell}` == "cellmi95" && j == 4) {
@@ -164,7 +164,7 @@ function miscoreboard(score) {
     cell = `cellmi${mistart + j}`;
     if (`${cell}` == "cellmi95" && j == 4) {
       score = 0;
-      return; 
+      return;
     }
     let hit = document.getElementById(cell) as HTMLInputElement;
     hit.innerText = score;
@@ -221,13 +221,12 @@ setTimeout(() => {
     (document.getElementById("csk") as HTMLInputElement).disabled = true;
     (document.getElementById("mi") as HTMLInputElement).disabled = true;
   }
-  
 }, 122000);
 
 (document.getElementById("result") as HTMLInputElement).addEventListener(
   "click",
   function () {
-   /*  if (cskTotal > miTotal){
+    /*  if (cskTotal > miTotal){
       alert(`CSK Won the Match  Total Score=${cskTotal}`);
     } 
     else {
@@ -235,6 +234,6 @@ setTimeout(() => {
     } */
     localStorage.setItem("cskTotal", `${cskTotal}`);
     localStorage.setItem("miTotal", `${miTotal}`);
-    window.location.href='resultpage.html'
+    window.location.href = "resultpage.html";
   }
 );
