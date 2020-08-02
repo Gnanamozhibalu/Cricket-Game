@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <title>Cricket-Game</title>
+    <style>
+      body {
+        background-image: url(game_bg.png);
+        text-align: center;
+        margin-top: 4px;
+      }
+      img {
+        height: 100px;
+        width: 100px;
+        border-radius: 30%;
+        margin-top: 0em;
+      }
+      #timer {
+        height: 80px;
+        width: 100px;
+        margin-top: 8px;
+        font-size: 40px;
+      }
+      .cell {
+        height: 40px;
+        width: 40px;
+        border: 3px solid #ffd31d;
+        background: #ffffff;
+        font-family: arial;
+        font-weight: bold;
+        text-align: center;
+        margin: auto;
+      }
+      .cellmi {
+        height: 40px;
+        width: 40px;
+        border: 3px solid #1605ff;
+        background: #ffffff;
+        font-family: arial;
+        font-weight: bold;
+        text-align: center;
+        margin: auto;
+      }
+      .cell:hover {
+        background: yellow;
+        text-align: center;
+      }
+      .cellmi:hover {
+        background: #4695df;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="row">
+        <div class="col">
+          <button class="btn btn-dark font-weight-bold mr-3 hitcsk" id="csk">
+            HIT
+          </button>
+          <img src="csk.jpg" />
+        </div>
+        <div class="col">
+          <button class="btn btn-dark font-weight-bold mr-3" id="timer">
+            60
+          </button>
+        </div>
+        <div class="col">
+          <button class="btn btn-dark font-weight-bold mr-3 hitmi" id="mi">
+            HIT
+          </button>
+          <img src="mi.jpg" />
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <div class="col m-4">
+          <table>
+            <tr>
+              <td id="cellplayer" class="cell">&nbsp;Players</td>
+              <td id="cell11" class="cell">&nbsp;Ball1</td>
+              <td id="cell12" class="cell">&nbsp;Ball2</td>
+              <td id="cell13" class="cell">&nbsp;Ball3</td>
+              <td id="cell14" class="cell">&nbsp;Ball4</td>
+              <td id="cell15" class="cell">&nbsp;Ball5</td>
+              <td id="cell16" class="cell">&nbsp;Ball6</td>
+              <td id="cell17" class="cell">&nbsp;Total</td>
+            </tr>
+            <tr>
+              <td id="cellname1" class="cell">&nbsp;Rayadu</td>
+              <td id="cell21" class="cell">&nbsp;</td>
+              <td id="cell22" class="cell">&nbsp;</td>
+              <td id="cell23" class="cell">&nbsp;</td>
+              <td id="cell24" class="cell">&nbsp;</td>
+              <td id="cell25" class="cell">&nbsp;</td>
+              <td id="cell26" class="cell">&nbsp;</td>
+              <td id="cell27" class="cell">&nbsp;</td>
+            </tr>
+            <tr>
+              <td id="cellname2" class="cell">&nbsp;Raina</td>
+              <td id="cell31" class="cell">&nbsp;</td>
+              <td id="cell32" class="cell">&nbsp;</td>
+              <td id="cell33" class="cell">&nbsp;</td>
+              <td id="cell34" class="cell">&nbsp;</td>
+              <td id="cell35" class="cell">&nbsp;</td>
+              <td id="cell36" class="cell">&nbsp;</td>
+              <td id="cell37" class="cell">&nbsp;</td>
+            </tr>
+            <tr>
+              <td id="cellname3" class="cell">&nbsp;duPlessis</td>
+              <td id="cell41" class="cell">&nbsp;</td>
+              <td id="cell42" class="cell">&nbsp;</td>
+              <td id="cell43" class="cell">&nbsp;</td>
+              <td id="cell44" class="cell">&nbsp;</td>
+              <td id="cell45" class="cell">&nbsp;</td>
+              <td id="cell46" class="cell">&nbsp;</td>
+              <td id="cell47" class="cell">&nbsp;</td>
+            </tr>
+            <tr>
+              <td
+                id="cellname4"
+                class="cell"
+                style="background-color: #ffd31d;"
+              >
+                &nbsp;MS Dhoni
+              </td>
+              <td id="cell51" class="cell">&nbsp;</td>
+              <td id="cell52" class="cell">&nbsp;</td>
+              <td id="cell53" class="cell">&nbsp;</td>
+              <td id="cell54" class="cell">&nbsp;</td>
+              <td id="cell55" class="cell">&nbsp;</td>
+              <td id="cell56" class="cell">&nbsp;</td>
+              <td id="cell57" class="cell">&nbsp;</td>
+            </tr>
+            <tr>
+              <td id="cellname5" class="cell">&nbsp;Jadeja</td>
+              <td id="cell61" class="cell">&nbsp;</td>
+              <td id="cell62" class="cell">&nbsp;</td>
+              <td id="cell63" class="cell">&nbsp;</td>
+              <td id="cell64" class="cell">&nbsp;</td>
+              <td id="cell65" class="cell">&nbsp;</td>
+              <td id="cell66" class="cell">&nbsp;</td>
+              <td id="cell67" class="cell">&nbsp;</td>
+            </tr>
+            <tr>
+              <td id="cellname6" class="cell">&nbsp;Watson</td>
+              <td id="cell71" class="cell">&nbsp;</td>
+              <td id="cell72" class="cell">&nbsp;</td>
+              <td id="cell73" class="cell">&nbsp;</td>
+              <td id="cell74" class="cell">&nbsp;</td>
+              <td id="cell75" class="cell">&nbsp;</td>
+              <td id="cell76" class="cell">&nbsp;</td>
+              <td id="cell77" class="cell">&nbsp;</td>
+            </tr>
+            <tr>
+              <td id="cellname7" class="cell">&nbsp;Bravo</td>
+              <td id="cell81" class="cell">&nbsp;</td>
+              <td id="cell82" class="cell">&nbsp;</td>
+              <td id="cell83" class="cell">&nbsp;</td>
+              <td id="cell84" class="cell">&nbsp;</td>
+              <td id="cell85" class="cell">&nbsp;</td>
+              <td id="cell86" class="cell">&nbsp;</td>
+              <td id="cell87" class="cell">&nbsp;</td>
+            </tr>
+            <tr>
+              <td id="cellname8" class="cell">&nbsp;K Jadhav</td>
+              <td id="cell91" class="cell">&nbsp;</td>
+              <td id="cell92" class="cell">&nbsp;</td>
+              <td id="cell93" class="cell">&nbsp;</td>
+              <td id="cell94" class="cell">&nbsp;</td>
+              <td id="cell95" class="cell">&nbsp;</td>
+              <td id="cell95" class="cell">&nbsp;</td>
+              <td id="cell97" class="cell">&nbsp;</td>
+            </tr>
+            <tr>
+              <td id="cellname9" class="cell">&nbsp;Harbhajan</td>
+              <td id="cell101" class="cell">&nbsp;</td>
+              <td id="cell102" class="cell">&nbsp;</td>
+              <td id="cell103" class="cell">&nbsp;</td>
+              <td id="cell104" class="cell">&nbsp;</td>
+              <td id="cell105" class="cell">&nbsp;</td>
+              <td id="cell106" class="cell">&nbsp;</td>
+              <td id="cell107" class="cell">&nbsp;</td>
+            </tr>
+            <tr>
+              <td id="cellname10" class="cell">&nbsp;Tahir</td>
+              <td id="cell111" class="cell">&nbsp;</td>
+              <td id="cell112" class="cell">&nbsp;</td>
+              <td id="cell113" class="cell">&nbsp;</td>
+              <td id="cell114" class="cell">&nbsp;</td>
+              <td id="cell115" class="cell">&nbsp;</td>
+              <td id="cell116" class="cell">&nbsp;</td>
+              <td id="cell117" class="cell">&nbsp;</td>
+            </tr>
+          </table>
+        </div>
+        <div class="col m-4">
+          <table>
+            <tr>
+              <td id="cellplayer" class="cellmi">&nbsp;Players</td>
+              <td id="cellmi11" class="cellmi">&nbsp;Ball1</td>
+              <td id="cellmi12" class="cellmi">&nbsp;Ball2</td>
+              <td id="cellmi13" class="cellmi">&nbsp;Ball3</td>
+              <td id="cellmi14" class="cellmi">&nbsp;Ball4</td>
+              <td id="cellmi15" class="cellmi">&nbsp;Ball5</td>
+              <td id="cellmi16" class="cellmi">&nbsp;Ball6</td>
+              <td id="cellmi17" class="cellmi">&nbsp;Total</td>
+            </tr>
+            <tr>
+              <td id="cellminame1" class="cellmi">&nbsp;de Kock</td>
+              <td id="cellmi21" class="cellmi">&nbsp;</td>
+              <td id="cellmi22" class="cellmi">&nbsp;</td>
+              <td id="cellmi23" class="cellmi">&nbsp;</td>
+              <td id="cellmi24" class="cellmi">&nbsp;</td>
+              <td id="cellmi25" class="cellmi">&nbsp;</td>
+              <td id="cellmi26" class="cellmi">&nbsp;</td>
+              <td id="cellmi27" class="cellmi">&nbsp;</td>
+            </tr>
+            <tr>
+              <td id="cellminame2" class="cellmi">&nbsp;HPandya</td>
+              <td id="cellmi31" class="cellmi">&nbsp;</td>
+              <td id="cellmi32" class="cellmi">&nbsp;</td>
+              <td id="cellmi33" class="cellmi">&nbsp;</td>
+              <td id="cellmi34" class="cellmi">&nbsp;</td>
+              <td id="cellmi35" class="cellmi">&nbsp;</td>
+              <td id="cellmi36" class="cellmi">&nbsp;</td>
+              <td id="cellmi37" class="cellmi">&nbsp;</td>
+            </tr>
+            <tr>
+              <td id="cellminame3" class="cellmi">&nbsp;S Yadav</td>
+              <td id="cellmi41" class="cellmi">&nbsp;</td>
+              <td id="cellmi42" class="cellmi">&nbsp;</td>
+              <td id="cellmi43" class="cellmi">&nbsp;</td>
+              <td id="cellmi44" class="cellmi">&nbsp;</td>
+              <td id="cellmi45" class="cellmi">&nbsp;</td>
+              <td id="cellmi46" class="cellmi">&nbsp;</td>
+              <td id="cellmi47" class="cellmi">&nbsp;</td>
+            </tr>
+            <tr>
+              <td
+                id="cellminame4"
+                class="cellmi"
+                style="background-color: #0936fd;"
+              >
+                &nbsp;Rohit
+              </td>
+              <td id="cellmi51" class="cellmi">&nbsp;</td>
+              <td id="cellmi52" class="cellmi">&nbsp;</td>
+              <td id="cellmi53" class="cellmi">&nbsp;</td>
+              <td id="cellmi54" class="cellmi">&nbsp;</td>
+              <td id="cellmi55" class="cellmi">&nbsp;</td>
+              <td id="cellmi56" class="cellmi">&nbsp;</td>
+              <td id="cellmi57" class="cellmi">&nbsp;</td>
+            </tr>
+            <tr>
+              <td id="cellminame5" class="cellmi">&nbsp;Pollard</td>
+              <td id="cellmi61" class="cellmi">&nbsp;</td>
+              <td id="cellmi62" class="cellmi">&nbsp;</td>
+              <td id="cellmi63" class="cellmi">&nbsp;</td>
+              <td id="cellmi64" class="cellmi">&nbsp;</td>
+              <td id="cellmi65" class="cellmi">&nbsp;</td>
+              <td id="cellmi66" class="cellmi">&nbsp;</td>
+              <td id="cellmi67" class="cellmi">&nbsp;</td>
+            </tr>
+            <tr>
+              <td id="cellminame6" class="cellmi">&nbsp;Kulkarni</td>
+              <td id="cellmi71" class="cellmi">&nbsp;</td>
+              <td id="cellmi72" class="cellmi">&nbsp;</td>
+              <td id="cellmi73" class="cellmi">&nbsp;</td>
+              <td id="cellmi74" class="cellmi">&nbsp;</td>
+              <td id="cellmi75" class="cellmi">&nbsp;</td>
+              <td id="cellmi76" class="cellmi">&nbsp;</td>
+              <td id="cellmi77" class="cellmi">&nbsp;</td>
+            </tr>
+            <tr>
+              <td id="cellminame7" class="cellmi">&nbsp;Chahar</td>
+              <td id="cellmi81" class="cellmi">&nbsp;</td>
+              <td id="cellmi82" class="cellmi">&nbsp;</td>
+              <td id="cellmi83" class="cellmi">&nbsp;</td>
+              <td id="cellmi84" class="cellmi">&nbsp;</td>
+              <td id="cellmi85" class="cellmi">&nbsp;</td>
+              <td id="cellmi86" class="cellmi">&nbsp;</td>
+              <td id="cellmi87" class="cellmi">&nbsp;</td>
+            </tr>
+            <tr>
+              <td id="cellminame8" class="cellmi">&nbsp;Lynn</td>
+              <td id="cellmi91" class="cellmi">&nbsp;</td>
+              <td id="cellmi92" class="cellmi">&nbsp;</td>
+              <td id="cellmi93" class="cellmi">&nbsp;</td>
+              <td id="cellmi94" class="cellmi">&nbsp;</td>
+              <td id="cellmi95" class="cellmi">&nbsp;</td>
+              <td id="cellmi95" class="cellmi">&nbsp;</td>
+              <td id="cellmi97" class="cellmi">&nbsp;</td>
+            </tr>
+            <tr>
+              <td id="cellminame9" class="cellmi">&nbsp;Bumrah</td>
+              <td id="cellmi101" class="cellmi">&nbsp;</td>
+              <td id="cellmi102" class="cellmi">&nbsp;</td>
+              <td id="cellmi103" class="cellmi">&nbsp;</td>
+              <td id="cellmi104" class="cellmi">&nbsp;</td>
+              <td id="cellmi105" class="cellmi">&nbsp;</td>
+              <td id="cellmi106" class="cellmi">&nbsp;</td>
+              <td id="cellmi107" class="cellmi">&nbsp;</td>
+            </tr>
+            <tr>
+              <td id="cellminame10" class="cellmi">&nbsp;Malinga</td>
+              <td id="cellmi111" class="cellmi">&nbsp;</td>
+              <td id="cellmi112" class="cellmi">&nbsp;</td>
+              <td id="cellmi113" class="cellmi">&nbsp;</td>
+              <td id="cellmi114" class="cellmi">&nbsp;</td>
+              <td id="cellmi115" class="cellmi">&nbsp;</td>
+              <td id="cellmi116" class="cellmi">&nbsp;</td>
+              <td id="cellmi117" class="cellmi">&nbsp;</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col text-center">
+          <button class="btn btn-secondary" id="result">Generate Result</button>
+        </div>
+          
+      </div>
+    </div>
+    <!--  var elemValue = localStorage.getItem("lastname"); -->
+    <script src="index.js"></script>
+  </body>
+</html>
