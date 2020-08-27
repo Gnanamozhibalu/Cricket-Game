@@ -1,4 +1,5 @@
 # Cricket-Game
+## Live Demo: https://suspicious-boyd-87f0d2.netlify.app
 To Run Project<br/>
 1.git clone https://github.com/Gnanamozhibalu/Cricket-Game.git<br/>
 2.change current directory<br/>
